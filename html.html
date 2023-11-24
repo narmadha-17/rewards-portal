@@ -1,0 +1,76 @@
+<table>
+ <thead>
+    <th>name</th>
+    <th>duration</th>
+    <th>mode</th>
+    <th>Link</th>
+
+  </thead>  
+  <tbody  id="tbody1"></tbody>
+</table>
+     </div>
+<script>    
+
+var stdNo = 0;
+var tbody = document.getElementById('tbody1');
+function AddItemToTable (name, name2, name3, name4) {
+let trow = document.createElement("trow");
+let td1 = document.createElement('td');
+let td2 = document.createElement('td');
+let td3 = document.createElement('td');
+let td4 = document.createElement('td');
+let td5 = document.createElement('td' );
+
+
+
+td1.innerHTML = ++stdNo;
+td2.innerHTML= name;
+td3.innerHTML = roll;
+td4.innerHTML = sec;
+td5.innerHTML = gen; 
+
+
+trow.appendChild(td1);
+trow.appendChild(td2);
+trow.appendChild(td3);I
+trow.appendChild(td4);
+trow.appendChild(td5);
+
+tbody.appendChild(trow);
+}
+
+
+function AddAllItemsToTable (TheStudent) {
+stdNo=0;
+tbody.innerHTML="";
+TheStudent.forEach(element => {
+AddItemToTable (element.name, element.name2, element.name3, element.name4)
+});
+function AddAllItemsToTable (TheStudent){
+}
+
+
+GET DATA :  
+function GetAllDataOnce(){
+const dbRef = ref(db);
+get (child(dbRef, "StudentsList"))
+.then((snapshot) => {
+var students = [];
+I
+snapshot.forEach(childSnapshot => {
+students.push(childSnapshot.val());
+});
+AddAllItemsToTable (students);
+});
+}
+window.onload = GetAllDataOnce;
+
+
+
+
+
+</script>
+
+
+
+
